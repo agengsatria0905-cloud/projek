@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - Aplikasi Kesehatan Mental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🌸 MindCare</h1>
+            <p class="tagline">Jaga Kesehatan Mentalmu dengan Baik</p>
+        </div>
+    </header>
+
+    <nav id="mainNav">
+        <button class="nav-btn active" data-section="home">Beranda</button>
+        <button class="nav-btn" data-section="mood">Mood Tracker</button>
+        <button class="nav-btn" data-section="breathing">Pernapasan</button>
+        <button class="nav-btn" data-section="mindfulness">Mindfulness</button>
+        <button class="nav-btn" data-section="assessment">Self-Assessment</button>
+        <button class="nav-btn" data-section="articles">Artikel</button>
+        <button class="nav-btn" data-section="journal">Jurnal</button>
+    </nav>
+
+    <main class="container">
+        <!-- HOME SECTION -->
+        <section id="home" class="section active">
+            <div class="welcome-card">
+                <h2>Selamat Datang di MindCare 💚</h2>
+                <p>MindCare adalah aplikasi kesehatan mental yang membantu Anda meningkatkan kesejahteraan emosional melalui berbagai fitur self-help yang mudah digunakan.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card" data-go="mood">
+                        <span class="icon">📊</span>
+                        <h3>Mood Tracker</h3>
+                        <p>Pantau suasana hati Anda setiap hari</p>
+                    </div>
+                    <div class="feature-card" data-go="breathing">
+                        <span class="icon">🫁</span>
+                        <h3>Latihan Pernapasan</h3>
+                        <p>Teknik pernapasan untuk menenangkan pikiran</p>
+                    </div>
+                    <div class="feature-card" data-go="mindfulness">
+                        <span class="icon">🧘</span>
+                        <h3>Mindfulness</h3>
+                        <p>Latihan relaksasi dan meditasi</p>
+                    </div>
+                    <div class="feature-card" data-go="assessment">
+                        <span class="icon">📝</span>
+                        <h3>Self-Assessment</h3>
+                        <p>Evaluasi kondisi emosional Anda</p>
+                    </div>
+                    <div class="feature-card" data-go="articles">
+                        <span class="icon">📚</span>
+                        <h3>Artikel Edukasi</h3>
+                        <p>Pelajari tentang kesehatan mental</p>
+                    </div>
+                    <div class="feature-card" data-go="journal">
+                        <span class="icon">📖</span>
+                        <h3>Jurnal Harian</h3>
+                        <p>Tuliskan perasaan dan pikiran Anda</p>
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <p><strong>⚠️ Penting:</strong> Aplikasi ini adalah alat bantu self-help dan bukan pengganti konsultasi profesional. Jika Anda mengalami masalah kesehatan mental yang serius, harap hubungi tenaga profesional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MOOD TRACKER SECTION -->
+        <section id="mood" class="section">
+            <h2>Mood Tracker 📊</h2>
+            <p class="section-desc">Bagaimana perasaan Anda hari ini?</p>
+            
+            <div class="mood-selector">
+                <button class="mood-btn" data-mood="senang">
+                    <span class="mood-emoji">😊</span>
+                    <span class="mood-label">Senang</span>
+                </button>
+                <button class="mood-btn" data-mood="netral">
+                    <span class="mood-emoji">😐</span>
+                    <span class="mood-label">Netral</span>
+                </button>
+                <button class="mood-btn" data-mood="sedih">
+                    <span class="mood-emoji">😢</span>
+                    <span class="mood-label">Sedih</span>
+                </button>
+                <button class="mood-btn" data-mood="stres">
+                    <span class="mood-emoji">😰</span>
+                    <span class="mood-label">Stres</span>
+                </button>
+                <button class="mood-btn" data-mood="marah">
+                    <span class="mood-emoji">😠</span>
+                    <span class="mood-label">Marah</span>
+                </button>
+            </div>
+
+            <div id="moodHistory" class="mood-history">
+                <h3>Riwayat Mood</h3>
+                <div id="moodChart" class="mood-chart"></div>
+                <div id="moodList" class="mood-list"></div>
+            </div>
+        </section>
+
+        <!-- BREATHING EXERCISE SECTION -->
+        <section id="breathing" class="section">
+            <h2>Latihan Pernapasan 🫁</h2>
+            <p class="section-desc">Teknik pernapasan 4-4-6 untuk menenangkan pikiran</p>
+            
+            <div class="breathing-container">
+                <div id="breathingCircle" class="breathing-circle">
+                    <span id="breathingText">Mulai</span>
+                </div>
+                
+                <div class="breathing-controls">
+                    <button id="startBreathing" class="btn-primary">Mulai Latihan</button>
+                    <button id="stopBreathing" class="btn-secondary hide">Berhenti</button>
+                </div>
+                
+                <div id="breathingProgress" class="breathing-progress hide">
+                    <p>Siklus: <span id="cycleCount">0</span> / 5</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>Manfaat Latihan Pernapasan:</h4>
+                <ul>
+                    <li>Mengurangi stres dan kecemasan</li>
+                    <li>Meningkatkan fokus dan konsentrasi</li>
+                    <li>Menurunkan tekanan darah</li>
+                    <li>Memperbaiki kualitas tidur</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- MINDFULNESS SECTION -->
+        <section id="mindfulness" class="section">
+            <h2>Mindfulness & Relaksasi 🧘</h2>
+            <p class="section-desc">Latihan untuk meningkatkan kesadaran dan ketenangan</p>
+            
+            <div class="mindfulness-container">
+                <div class="mindfulness-steps">
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h3>Fokus pada Pernapasan</h3>
+                        <p>Sadari napas masuk dan keluar dengan perlahan</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h3>Lepaskan Ketegangan</h3>
+                        <p>Relaksasi otot di bahu, leher, dan wajah</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h3>Sadari Sensasi Tubuh</h3>
+                        <p>Perhatikan sensasi di setiap bagian tubuh</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">4</span>
+                        <h3>Terima Pikiran</h3>
+                        <p>Biarkan pikiran datang dan pergi tanpa menilai</p>
+                    </div>
+                </div>
+
+                <div class="ambient-player">
+                    <h3>🎵 Ambience Sound</h3>
+                    <p class="ambient-note">Bayangkan suara alam yang menenangkan</p>
+                    <div class="player-controls">
+                        <button id="playAmbient" class="btn-primary">▶️ Play</button>
+                        <button id="pauseAmbient" class="btn-secondary hide">⏸️ Pause</button>
+                    </div>
+                    <p class="ambient-status" id="ambientStatus">Siap untuk diputar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELF-ASSESSMENT SECTION -->
+        <section id="assessment" class="section">
+            <h2>Self-Assessment 📝</h2>
+            <p class="section-desc">Evaluasi kondisi emosional Anda (non-medis)</p>
+            
+            <div id="assessmentQuiz" class="quiz-container">
+                <div id="quizQuestions"></div>
+                <button id="submitAssessment" class="btn-primary">Lihat Hasil</button>
+            </div>
+
+            <div id="assessmentResult" class="result-container hide">
+                <h3>Hasil Evaluasi</h3>
+                <div id="resultContent"></div>
+                <button id="retakeAssessment" class="btn-secondary">Ulangi Assessment</button>
+            </div>
+        </section>
+
+        <!-- ARTICLES SECTION -->
+        <section id="articles" class="section">
+            <h2>Artikel Edukasi 📚</h2>
+            <p class="section-desc">Pelajari lebih lanjut tentang kesehatan mental</p>
+            
+            <div class="articles-grid">
+                <div class="article-card">
+                    <h3>🌊 Memahami Stres</h3>
+                    <p>Stres adalah respons alami tubuh terhadap tantangan. Pelajari cara mengenali dan mengelola stres dengan efektif melalui teknik relaksasi, manajemen waktu, dan self-care.</p>
+                </div>
+                <div class="article-card">
+                    <h3>💭 Mengatasi Kecemasan</h3>
+                    <p>Kecemasan dapat muncul dalam berbagai bentuk. Kenali gejala, pelajari teknik grounding, pernapasan dalam, dan cara menghadapi pikiran cemas dengan lebih tenang.</p>
+                </div>
+                <div class="article-card">
+                    <h3>🔥 Burnout dan Cara Mengatasinya</h3>
+                    <p>Burnout adalah kelelahan fisik dan emosional akibat stres berkepanjangan. Penting untuk mengenali tanda-tanda awal dan mengambil langkah preventif untuk pemulihan.</p>
+                </div>
+                <div class="article-card">
+                    <h3>💚 Self-Compassion</h3>
+                    <p>Bersikap baik pada diri sendiri sama pentingnya dengan empati pada orang lain. Praktikkan self-compassion untuk meningkatkan resiliensi dan kesejahteraan mental.</p>
+                </div>
+                <div class="article-card">
+                    <h3>🌟 Membangun Kebiasaan Sehat</h3>
+                    <p>Kebiasaan kecil berdampak besar pada kesehatan mental. Tidur cukup, olahraga teratur, nutrisi seimbang, dan waktu berkualitas dengan orang terkasih sangat penting.</p>
+                </div>
+                <div class="article-card">
+                    <h3>🧠 Pentingnya Istirahat Mental</h3>
+                    <p>Otak kita membutuhkan istirahat seperti tubuh. Digital detox, hobi yang menyenangkan, dan waktu untuk diri sendiri adalah investasi penting untuk kesehatan mental jangka panjang.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNAL SECTION -->
+        <section id="journal" class="section">
+            <h2>Jurnal Harian 📖</h2>
+            <p class="section-desc">Tuliskan perasaan dan pikiran Anda</p>
+            
+            <div class="journal-container">
+                <div class="journal-input">
+                    <textarea id="journalText" placeholder="Tuliskan apa yang Anda rasakan hari ini..."></textarea>
+                    <button id="saveJournal" class="btn-primary">💾 Simpan Catatan</button>
+                </div>
+
+                <div class="journal-entries">
+                    <h3>Catatan Sebelumnya</h3>
+                    <div id="journalList"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>MindCare - Jaga Kesehatan Mental Anda © 2024</p>
+            <p class="footer-note">Ingat: Aplikasi ini adalah alat bantu, bukan pengganti konsultasi profesional</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
